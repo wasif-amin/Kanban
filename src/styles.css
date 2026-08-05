@@ -1,0 +1,92 @@
+body {
+  font-family: sans-serif;
+  margin: 0 auto;
+  padding: 25px;
+  max-width: 400px;
+  min-width: 400px;
+  background-color: #dfe6e9;
+  text-align: center;
+}
+
+.heading {
+  text-align: center;
+  font-size: 2em;
+  color: #2d3436;
+  margin: 20px 0 30px;
+}
+
+.card {
+  border-radius: 25px;
+  position: relative;
+  padding: 25px 15px;
+  background-color: #81ecec;
+  margin: 50px 0;
+  height: 250px;
+  box-shadow: 0 2px 5px #ccc;
+  text-align: left;
+  border: solid 5px #00cec9;
+}
+
+form {
+  position: relative;
+  width: 480px;
+  margin: 30px auto 20px auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+
+form input,
+form textarea {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  outline: none;
+  font-size: 1.2em;
+  font-family: inherit;
+  resize: none;
+}
+.with {
+  position: absolute;
+  top: -15px;
+  right: 25px;
+  width: 80px;
+  height: 80px;
+  border: solid white 7px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+}
+.create {
+  background-color: #81ecec;
+  border-radius: 15px;
+}
+input {
+  background-color: #81ecec;
+}
+textarea {
+  background-color: #81ecec;
+}
+/* .top h1 {
+  color: white !important;
+  margin: 0;
+  font-size: 20px;
+  display: block;
+} */
+.card.urgent {
+  background-color: #ff5f00;
+}
+.card.go-ahead {
+  background-color: lightgreen;
+}
+.card.notStarted {
+  background-color: #9fa1ff;
+}
+
+.card.inProgress {
+  background-color: #fef2a0;
+}
