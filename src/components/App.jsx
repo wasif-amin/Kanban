@@ -34,6 +34,14 @@ function App() {
     });
     setProject({ projectTitle: "", owner: "", actionItem: "" });
   }
+  function deleteProject(id) {
+    setProjects((prevProjects) => {
+      return prevProjects.filter((projectItem, index) => {
+        return index !== id;
+      });
+    });
+  }
+
   function updateOwner(event, id) {
     const newOwner = event.target.value;
     setProjects((prevProjects) => {
