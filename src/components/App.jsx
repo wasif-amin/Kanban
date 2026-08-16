@@ -9,19 +9,10 @@ function App() {
     owner: "",
     actionItem: "",
   });
-  const [projects, setProjects] = useState([]);
-  useEffect(() => {
-    console.log("Current Project State:", project);
-  }, [project]);
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setProject((prevProject) => {
-      return {
-        ...prevProject,
-        [name]: value,
-      };
-    });
-  }
+  const [projects, setProjects] = useState(() => {
+    const savedProjects = localStorage.getItem("kanban_projects");
+    return savedProjects ? JSON.parse(savedProjects) : [];
+  });
   function handleClick(event) {
     event.preventDefault();
     setProjects((prevProjects) => {
