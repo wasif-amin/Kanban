@@ -80,6 +80,7 @@ function App() {
           actionItem={project.actionItem}
           onActionUpdate={updateAction}
           onOwnerUpdate={updateOwner}
+          onDelete={deleteProject}
         />
       ))}
     </div>
