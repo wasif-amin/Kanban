@@ -34,6 +34,7 @@ function App() {
     });
     setProject({ projectTitle: "", owner: "", actionItem: "" });
   }
+
   function updateOwner(event, id) {
     const newOwner = event.target.value;
     setProjects((prevProjects) => {
