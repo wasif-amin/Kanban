@@ -34,8 +34,6 @@ function App() {
     });
     setProject({ projectTitle: "", owner: "", actionItem: "" });
   }
-<<<<<<< HEAD
-=======
   function deleteProject(id) {
     setProjects((prevProjects) => {
       return prevProjects.filter((projectItem, index) => {
@@ -43,7 +41,6 @@ function App() {
       });
     });
   }
->>>>>>> delete-project
 
   function updateOwner(event, id) {
     const newOwner = event.target.value;
