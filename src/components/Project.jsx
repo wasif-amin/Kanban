@@ -94,6 +94,7 @@ function Project(props) {
       ) : (
         <p onClick={() => setIsEditingAction(true)}>{props.actionItem}</p>
       )}
+      <button onClick={() => props.onDelete(props.id)}>Delete Project</button>
     </div>
   );
 }
