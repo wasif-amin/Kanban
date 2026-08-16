@@ -13,6 +13,20 @@ function App() {
     const savedProjects = localStorage.getItem("kanban_projects");
     return savedProjects ? JSON.parse(savedProjects) : [];
   });
+
+  useEffect(() => {
+    localStorage.setItem("kanban_projects", JSON.stringify(projects));
+  }, [projects]);
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setProject((prevProject) => {
+      return {
+        ...prevProject,
+        [name]: value,
+      };
+    });
+  }
   function handleClick(event) {
     event.preventDefault();
     setProjects((prevProjects) => {
