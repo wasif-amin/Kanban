@@ -43,33 +43,34 @@ function App() {
     );
   }
 
-  function deleteProject(id) {
+  function deleteProject(idToDelete) {
     setProjects((prevProjects) => {
-      return prevProjects.filter((projectItem, index) => {
-        return index !== id;
+      return prevProjects.filter((projectItem) => {
+        return projectItem.id !== idToDelete;
       });
     });
   }
 
-  function updateOwner(event, id) {
+  function updateOwner(event, idToUpdate) {
     const newOwner = event.target.value;
     setProjects((prevProjects) => {
-      return prevProjects.map((prevProject, index) => {
-        if (index === id) {
-          return { ...prevProject, owner: newOwner };
+      return prevProjects.map((project) => {
+        if (project.id === idToUpdate) {
+          return { ...project, owner: newOwner };
         }
-        return prevProject;
+        return project;
       });
     });
   }
-  function updateAction(event, id) {
+
+  function updateAction(event, idToUpdate) {
     const newAction = event.target.value;
     setProjects((prevProjects) => {
-      return prevProjects.map((prevProject, index) => {
-        if (index === id) {
-          return { ...prevProject, actionItem: newAction };
+      return prevProjects.map((project) => {
+        if (project.id === idToUpdate) {
+          return { ...project, actionItem: newAction };
         }
-        return prevProject;
+        return project;
       });
     });
   }
