@@ -69,7 +69,9 @@ function Project(props) {
           onChange={handleChecked}
         />
         <label name="go-ahead">not started</label>
-        <label name="inProgress"> In Progress</label>
+        <label>
+          <input type="checkbox" /> In-Progress
+        </label>
 
         <input
           id="inProgress"
