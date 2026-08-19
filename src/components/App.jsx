@@ -34,6 +34,15 @@ function App() {
     });
     setProject({ projectTitle: "", owner: "", actionItem: "" });
   }
+
+  function handleStatusChange(id, newStatus) {
+    setProjects((prevProjects) =>
+      prevProjects.map((project) =>
+        project.id === id ? { ...project, status: newStatus } : project
+      )
+    );
+  }
+
   function deleteProject(id) {
     setProjects((prevProjects) => {
       return prevProjects.filter((projectItem, index) => {
@@ -74,13 +83,15 @@ function App() {
       {projects.map((project, index) => (
         <Project
           key={project.id || index}
-          id={index}
+          id={project.id}
           ProjectTitle={project.projectTitle}
           owner={project.owner}
           actionItem={project.actionItem}
+          status={project.status}
           onActionUpdate={updateAction}
           onOwnerUpdate={updateOwner}
           onDelete={deleteProject}
+          onStatusChange={handleStatusChange}
         />
       ))}
     </div>

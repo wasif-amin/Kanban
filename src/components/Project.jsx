@@ -14,10 +14,12 @@ const topStyles = {
 function Project(props) {
   const [isEditingAction, setIsEditingAction] = useState(false);
   const [isEditingOwner, setIsEditingOwner] = useState(false);
-  const [status, setStatus] = useState("notStarted");
+  const [status, setStatus] = useState(props.status || "notStarted");
   function handleChecked(event) {
     const { id } = event.target;
     setStatus(id);
+
+    props.onStatusChange(props.id, id);
   }
 
   return (
@@ -47,13 +49,12 @@ function Project(props) {
       </div>
       <div>
         <input
-          id="go-ahead"
+          id="completed"
           type="checkbox"
-          checked={status === "go-ahead"}
+          checked={status === "completed"}
           onChange={handleChecked}
         />
-
-        <label name="go-ahead">Completed</label>
+        <label htmlFor="completed">Completed</label>
 
         <input
           id="urgent"
@@ -61,17 +62,7 @@ function Project(props) {
           checked={status === "urgent"}
           onChange={handleChecked}
         />
-        <label name="urgent">Needs Attention</label>
-        <input
-          id="notStarted"
-          type="checkbox"
-          checked={status === "notStarted"}
-          onChange={handleChecked}
-        />
-        <label name="go-ahead">not started</label>
-        <label>
-          <input type="checkbox" /> In-Progress
-        </label>
+        <label htmlFor="urgent">Needs Attention</label>
 
         <input
           id="inProgress"
@@ -79,6 +70,15 @@ function Project(props) {
           checked={status === "inProgress"}
           onChange={handleChecked}
         />
+        <label htmlFor="inProgress">In-Progress</label>
+
+        <input
+          id="notStarted"
+          type="checkbox"
+          checked={status === "notStarted"}
+          onChange={handleChecked}
+        />
+        <label htmlFor="notStarted">Not Started</label>
       </div>
       <h3>current action item:</h3>
       {/* <p>{props.actionItem}</p> */}

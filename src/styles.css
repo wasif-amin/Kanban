@@ -71,17 +71,12 @@ input {
 textarea {
   background-color: #81ecec;
 }
-/* .top h1 {
-  color: white !important;
-  margin: 0;
-  font-size: 20px;
-  display: block;
-} */
+
 .card.urgent {
   background-color: #ff5f00;
 }
-.card.go-ahead {
-  background-color: lightgreen;
+.card.completed {
+  background-color: lightgreen !important;
 }
 .card.notStarted {
   background-color: #9fa1ff;
