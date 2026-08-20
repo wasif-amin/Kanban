@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 const topStyles = {
   borderRadius: "25px 25px 25px 26px",
   width: "100%",
@@ -16,11 +16,15 @@ function Project(props) {
   const [isEditingOwner, setIsEditingOwner] = useState(false);
   const [status, setStatus] = useState(props.status || "notStarted");
   function handleChecked(event) {
-    const { id } = event.target;
-    setStatus(id);
+    const rawId = event.target.id;
+    const statusId = rawId.split("-")[0];
 
-    props.onStatusChange(props.id, id);
+    setStatus(statusId);
+    props.onStatusChange(props.id, statusId);
   }
+  useEffect(() => {
+    setStatus(props.status || "notStarted");
+  }, [props.status]);
 
   return (
     <div className={`card ${status}`}>
@@ -49,36 +53,36 @@ function Project(props) {
       </div>
       <div>
         <input
-          id="completed"
+          id={`completed-${props.id}`}
           type="checkbox"
           checked={status === "completed"}
           onChange={handleChecked}
         />
-        <label htmlFor="completed">Completed</label>
+        <label htmlFor={`completed-${props.id}`}>Completed</label>
 
         <input
-          id="urgent"
+          id={`urgent-${props.id}`}
           type="checkbox"
           checked={status === "urgent"}
           onChange={handleChecked}
         />
-        <label htmlFor="urgent">Needs Attention</label>
+        <label htmlFor={`urgent-${props.id}`}>Needs Attention</label>
 
         <input
-          id="inProgress"
+          id={`inProgress-${props.id}`}
           type="checkbox"
           checked={status === "inProgress"}
           onChange={handleChecked}
         />
-        <label htmlFor="inProgress">In-Progress</label>
+        <label htmlFor={`inProgress-${props.id}`}>In-Progress</label>
 
         <input
-          id="notStarted"
+          id={`notStarted-${props.id}`}
           type="checkbox"
           checked={status === "notStarted"}
           onChange={handleChecked}
         />
-        <label htmlFor="notStarted">Not Started</label>
+        <label htmlFor={`notStarted-${props.id}`}>Not Started</label>
       </div>
       <h3>current action item:</h3>
       {/* <p>{props.actionItem}</p> */}

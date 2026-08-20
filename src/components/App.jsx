@@ -29,10 +29,16 @@ function App() {
   }
   function handleClick(event) {
     event.preventDefault();
-    setProjects((prevProjects) => {
-      return [...prevProjects, project];
+    setProjects((prevProjects) => [
+      ...prevProjects,
+      { ...project, id: Date.now() },
+    ]);
+    setProject({
+      projectTitle: "",
+      owner: "",
+      actionItem: "",
+      status: "notStarted",
     });
-    setProject({ projectTitle: "", owner: "", actionItem: "" });
   }
 
   function handleStatusChange(id, newStatus) {
