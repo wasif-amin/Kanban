@@ -1,4 +1,4 @@
-Project: Kanban Board - [Live Demo](https://kanban-seven-ruby.vercel.app/)
+Project: Kanban Board - [Live Demo](https://kanban-seven-ruby.vercel.app/) [Video Demo](https://www.loom.com/share/75a3a9d2ad2b4dada334358920be96c7)
 
 Descriprion: 
 Frontend-focused Kanban built with React and localStorage for instant offline persistence. Designed to demonstrate complex client-side state and drag-and-drop without backend latency.
