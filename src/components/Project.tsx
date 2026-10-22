@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-const topStyles = {
-  borderRadius: "25px 25px 25px 26px",
-  width: "100%",
-  backgroundColor: "#00cec9",
-  minHeight: "80px",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  position: "relative",
+const topStyles: React.CSSProperties = {
+  borderRadius: '25px 25px 25px 26px',
+  width: '100%',
+  backgroundColor: '#00cec9',
+  minHeight: '80px',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  position: 'relative',
   zIndex: 10,
 };
 function Project(props) {
