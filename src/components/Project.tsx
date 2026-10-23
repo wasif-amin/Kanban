@@ -19,7 +19,9 @@ interface ProjectProps {
 function Project(props: ProjectProps) {
   const [isEditingAction, setIsEditingAction] = useState(false);
   const [isEditingOwner, setIsEditingOwner] = useState(false);
-  const [status, setStatus] = useState(props.status || "not started");
+  const [status, setStatus] = useState<CardStatus>(
+    props.status || "not started",
+  );
   function handleChecked(event) {
     const rawId = event.target.id;
     const statusId = rawId.split("-")[0];
