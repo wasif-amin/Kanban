@@ -5,5 +5,5 @@ export interface KanbanCard {
   ProjectTitle: string;
   owner: string;
   actionItem: string;
-  status: string;
+  status: CardStatus;
 }

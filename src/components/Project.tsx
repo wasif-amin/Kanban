@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { CardStatus } from "../types";
 const topStyles: React.CSSProperties = {
   borderRadius: '25px 25px 25px 26px',
   width: '100%',
@@ -11,10 +12,16 @@ const topStyles: React.CSSProperties = {
   position: 'relative',
   zIndex: 10,
 };
-function Project(props) {
+interface ProjectProps {
+  status?: CardStatus; 
+}
+interface ProjectProps {
+  status?: CardStatus; 
+}
+function Project(props: ProjectProps) {
   const [isEditingAction, setIsEditingAction] = useState(false);
   const [isEditingOwner, setIsEditingOwner] = useState(false);
-  const [status, setStatus] = useState(props.status || "notStarted");
+  const [status, setStatus] = useState(props.status || "not started");
   function handleChecked(event) {
     const rawId = event.target.id;
     const statusId = rawId.split("-")[0];
