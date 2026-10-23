@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { CardStatus } from "../types";
 const topStyles: React.CSSProperties = {
-  borderRadius: '25px 25px 25px 26px',
-  width: '100%',
-  backgroundColor: '#00cec9',
-  minHeight: '80px',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-  position: 'relative',
+  borderRadius: "25px 25px 25px 26px",
+  width: "100%",
+  backgroundColor: "#00cec9",
+  minHeight: "80px",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  position: "relative",
   zIndex: 10,
 };
 interface ProjectProps {
-  status?: CardStatus; 
+  status?: CardStatus;
 }
-interface ProjectProps {
-  status?: CardStatus; 
-}
+
 function Project(props: ProjectProps) {
   const [isEditingAction, setIsEditingAction] = useState(false);
   const [isEditingOwner, setIsEditingOwner] = useState(false);
