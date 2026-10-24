@@ -15,12 +15,16 @@ const topStyles: React.CSSProperties = {
 interface ProjectProps {
   status?: CardStatus;
 }
-
+interface ProjectProps {
+  id: number;
+  status?: CardStatus;
+  onStatusChange: (id: number, nextStatus: CardStatus) => void;
+}
 function Project(props: ProjectProps) {
   const [isEditingAction, setIsEditingAction] = useState(false);
   const [isEditingOwner, setIsEditingOwner] = useState(false);
   const [status, setStatus] = useState<CardStatus>(
-    props.status || "not started",
+    props.status || "not started"
   );
   function handleChecked(event) {
     const rawId = event.target.id;
