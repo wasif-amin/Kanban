@@ -26,15 +26,15 @@ function Project(props: ProjectProps) {
   const [status, setStatus] = useState<CardStatus>(
     props.status || "not started"
   );
-  function handleChecked(event) {
+  function handleChecked(event: React.ChangeEvent<HTMLInputElement>) {
     const rawId = event.target.id;
-    const statusId = rawId.split("-")[0];
+    const statusId = rawId.split("-")[0] as CardStatus;
 
     setStatus(statusId);
     props.onStatusChange(props.id, statusId);
   }
   useEffect(() => {
-    setStatus(props.status || "notStarted");
+    setStatus(props.status || "not started");
   }, [props.status]);
 
   return (
