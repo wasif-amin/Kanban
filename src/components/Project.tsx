@@ -13,11 +13,14 @@ const topStyles: React.CSSProperties = {
   zIndex: 10,
 };
 interface ProjectProps {
+  onOwnerUpdate(e: React.FocusEvent<HTMLInputElement, Element>, id: number): unknown;
+  owner: string | number | readonly string[] | undefined;
   status?: CardStatus;
 }
 interface ProjectProps {
   id: number;
   status?: CardStatus;
+  projectTite: string
   onStatusChange: (id: number, nextStatus: CardStatus) => void;
 }
 function Project(props: ProjectProps) {
@@ -40,7 +43,7 @@ function Project(props: ProjectProps) {
   return (
     <div className={`card ${status}`}>
       <div className="top" style={topStyles}>
-        <h1> {props.ProjectTitle}</h1>
+        <h1> {props.projectTite}</h1>
         {isEditingOwner ? (
           <input
             defaultValue={props.owner}
@@ -50,7 +53,7 @@ function Project(props: ProjectProps) {
               setIsEditingOwner(false);
             }}
             onKeyDown={(e) => {
-              if (e.key === "Enter") e.target.blur();
+              if (e.key === "Enter") {(e.target as HTMLInputElement).blur}
             }}
           />
         ) : (
