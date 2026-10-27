@@ -13,6 +13,7 @@ const topStyles: React.CSSProperties = {
   zIndex: 10,
 };
 interface ProjectProps {
+  onDelete(id: number): void;
   onActionUpdate(e: React.FocusEvent<HTMLInputElement, Element>, id: number): unknown;
   onOwnerUpdate(
     e: React.FocusEvent<HTMLInputElement, Element>,
@@ -36,7 +37,7 @@ function Project(props: ProjectProps) {
     const statusId = rawId.split("-")[0] as CardStatus;
 
     setStatus(statusId);
-    props.onStatusChange(props.id, statusId);
+    props.onStatusChange(props.card.id, statusId);
   }
   useEffect(() => {
     setStatus(props.status || "not started");
@@ -51,7 +52,7 @@ function Project(props: ProjectProps) {
             defaultValue={props.owner}
             autoFocus
             onBlur={(e) => {
-              props.onOwnerUpdate(e, props.id);
+              props.onOwnerUpdate(e, props.card.id);
               setIsEditingOwner(false);
             }}
             onKeyDown={(e) => {
@@ -71,31 +72,31 @@ function Project(props: ProjectProps) {
       </div>
       <div>
         <input
-          id={`completed-${props.id}`}
+          id={`completed-${props.card.id}`}
           type="checkbox"
           checked={status === "completed"}
           onChange={handleChecked}
         />
-        <label htmlFor={`completed-${props.id}`}>Completed</label>
+        <label htmlFor={`completed-${props.card.id}`}>Completed</label>
 
         <input
-          id={`urgent-${props.id}`}
+          id={`urgent-${props.card.id}`}
           type="checkbox"
           checked={status === "urgent"}
           onChange={handleChecked}
         />
-        <label htmlFor={`urgent-${props.id}`}>Needs Attention</label>
+        <label htmlFor={`urgent-${props.card.id}`}>Needs Attention</label>
 
         <input
-          id={`inProgress-${props.id}`}
+          id={`inProgress-${props.card.id}`}
           type="checkbox"
           checked={status === "in progress"}
           onChange={handleChecked}
         />
-        <label htmlFor={`inProgress-${props.id}`}>In-Progress</label>
+        <label htmlFor={`inProgress-${props.card.id}`}>In-Progress</label>
 
         <input
-          id={`notStarted-${props.id}`}
+          id={`notStarted-${props.card.id}`}
           type="checkbox"
           checked={status === "not started"}
           onChange={handleChecked}
@@ -103,26 +104,26 @@ function Project(props: ProjectProps) {
         <label htmlFor={`notStarted-${props.card.id}`}>Not Started</label>
       </div>
       <h3>current action item:</h3>
-      {/* <p>{props.actionItem}</p> */}
+      
       {isEditingAction ? (
         <input
           defaultValue={props.card.actionItem}
           onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
-            // 1. Updated props.id to props.card.id
+           
             props.onActionUpdate(e, props.card.id);
             setIsEditingAction(false);
           }}
           onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
-            // 2. Assured TS that the target executing the blur is an input element
+            
             if (e.key === "Enter") {
               (e.target as HTMLInputElement).blur();
             }
           }}
         />
       ) : (
-        <p onClick={() => setIsEditingAction(true)}>{props.actionItem}</p>
+        <p onClick={() => setIsEditingAction(true)}>{props.card.actionItem}</p>
       )}
-      <button onClick={() => props.onDelete(props.id)}>Delete Project</button>
+      <button onClick={() => props.onDelete(props.card.id)}>Delete Project</button>
     </div>
   );
 }
