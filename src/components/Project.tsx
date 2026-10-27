@@ -13,6 +13,7 @@ const topStyles: React.CSSProperties = {
   zIndex: 10,
 };
 interface ProjectProps {
+  onActionUpdate(e: React.FocusEvent<HTMLInputElement, Element>, id: number): unknown;
   onOwnerUpdate(
     e: React.FocusEvent<HTMLInputElement, Element>,
     id: number
@@ -88,7 +89,7 @@ function Project(props: ProjectProps) {
         <input
           id={`inProgress-${props.id}`}
           type="checkbox"
-          checked={status === "inProgress"}
+          checked={status === "in progress"}
           onChange={handleChecked}
         />
         <label htmlFor={`inProgress-${props.id}`}>In-Progress</label>
@@ -96,22 +97,26 @@ function Project(props: ProjectProps) {
         <input
           id={`notStarted-${props.id}`}
           type="checkbox"
-          checked={status === "notStarted"}
+          checked={status === "not started"}
           onChange={handleChecked}
         />
-        <label htmlFor={`notStarted-${props.id}`}>Not Started</label>
+        <label htmlFor={`notStarted-${props.card.id}`}>Not Started</label>
       </div>
       <h3>current action item:</h3>
       {/* <p>{props.actionItem}</p> */}
       {isEditingAction ? (
         <input
-          defaultValue={props.actionItem}
-          onBlur={(e) => {
-            props.onActionUpdate(e, props.id);
+          defaultValue={props.card.actionItem}
+          onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
+            // 1. Updated props.id to props.card.id
+            props.onActionUpdate(e, props.card.id);
             setIsEditingAction(false);
           }}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") e.target.blur();
+          onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+            // 2. Assured TS that the target executing the blur is an input element
+            if (e.key === "Enter") {
+              (e.target as HTMLInputElement).blur();
+            }
           }}
         />
       ) : (

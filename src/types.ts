@@ -1,4 +1,4 @@
-export type CardStatus = "not started" | "in progress" | "completed";
+export type CardStatus = "not started" | "in progress" | "completed"| "urgent";
 
 export interface KanbanCard {
   id: number;
