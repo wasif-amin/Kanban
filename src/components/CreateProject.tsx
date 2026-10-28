@@ -1,4 +1,14 @@
 import React from "react";
+import { KanbanCard,  CardStatus } from "../types";
+
+interface CreateProjectProps {
+  onAddProject: (
+    title: string,
+    owner: string,
+    action: string,
+    status: CardStatus,
+  ) => void;
+}
 
 function CreateProject(props) {
   return (
