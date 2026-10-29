@@ -1,16 +1,22 @@
-import React from "react";
-import { KanbanCard,  CardStatus } from "../types";
+import React, { ChangeEventHandler, useState } from "react";
+import { KanbanCard, CardStatus } from "../types";
 
 interface CreateProjectProps {
+  onChange: ChangeEventHandler<HTMLInputElement> | undefined;
   onAddProject: (
     title: string,
     owner: string,
     action: string,
-    status: CardStatus,
+    status: CardStatus
   ) => void;
 }
 
- function CreateProject(props: CreateProjectProps) {
+function CreateProject(props: CreateProjectProps) {
+  const [title, setTitle] = useState("");
+  const [owner, setOwner] = useState("");
+  const [actionItem, setActionItem] = useState("");
+
+  const [status, setStatus] = useState<CardStatus>("not started");
   return (
     <form className="create">
       <input
