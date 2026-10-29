@@ -10,7 +10,7 @@ interface CreateProjectProps {
   ) => void;
 }
 
-function CreateProject(props) {
+function CreateProject(props: { onChange: React.ChangeEventHandler<HTMLInputElement> | React.ChangeEventHandler<HTMLTextAreaElement> | undefined; project: { projectTitle: string | number | readonly string[] | undefined; owner: string | number | readonly string[] | undefined; actionItem: string | number | readonly string[] | undefined; }; onAdd: React.MouseEventHandler<HTMLButtonElement> | undefined; }) {
   return (
     <form className="create">
       <input
