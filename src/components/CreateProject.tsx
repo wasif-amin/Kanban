@@ -3,7 +3,7 @@ import { KanbanCard, CardStatus } from "../types";
 
 interface CreateProjectProps {
   project: { projectTitle: string; owner: string; actionItem: string };
-  onChange: ChangeEventHandler<HTMLInputElement> | undefined;
+  onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => 
   onAddProject: (
     title: string,
     owner: string,
@@ -37,7 +37,7 @@ function CreateProject(props: CreateProjectProps) {
         name="actionItem"
         value={props.project.actionItem}
         placeholder="current action item"
-        rows="3"
+        rows={3}
       ></textarea>
       <button className="addButton" onClick={props.onAdd}>
         add to board
