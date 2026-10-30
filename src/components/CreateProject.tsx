@@ -2,6 +2,7 @@ import React, { ChangeEventHandler, useState } from "react";
 import { KanbanCard, CardStatus } from "../types";
 
 interface CreateProjectProps {
+  project: { projectTitle: string; owner: string; actionItem: string };
   onChange: ChangeEventHandler<HTMLInputElement> | undefined;
   onAddProject: (
     title: string,
