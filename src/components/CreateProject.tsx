@@ -1,5 +1,4 @@
 import React, { ChangeEventHandler, useState } from "react";
-import { KanbanCard, CardStatus } from "../types";
 
 // interface CreateProjectProps {
 //   project: { projectTitle: string; owner: string; actionItem: string };
@@ -21,8 +20,6 @@ function CreateProject(props: CreateProjectProps) {
   const [title, setTitle] = useState("");
   const [owner, setOwner] = useState("");
   const [actionItem, setActionItem] = useState("");
-
-  const [status, setStatus] = useState<CardStatus>("not started");
   return (
     <form className="create">
       <input
