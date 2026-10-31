@@ -1,10 +1,6 @@
 import React, { ChangeEventHandler, useState } from "react";
 
-// interface CreateProjectProps {
-//   project: { projectTitle: string; owner: string; actionItem: string };
-//   onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-//     onAdd: (event: React.MouseEvent<HTMLButtonElement>) => void;
-// }
+
 interface CreateProjectProps {
   project: {
     projectTitle: string;
