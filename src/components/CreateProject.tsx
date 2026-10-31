@@ -1,17 +1,22 @@
 import React, { ChangeEventHandler, useState } from "react";
 import { KanbanCard, CardStatus } from "../types";
 
+// interface CreateProjectProps {
+//   project: { projectTitle: string; owner: string; actionItem: string };
+//   onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+//     onAdd: (event: React.MouseEvent<HTMLButtonElement>) => void;
+// }
 interface CreateProjectProps {
-  project: { projectTitle: string; owner: string; actionItem: string };
-  onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => 
-  onAddProject: (
-    title: string,
-    owner: string,
-    action: string,
-    status: CardStatus
+  project: {
+    projectTitle: string;
+    owner: string;
+    actionItem: string;
+  };
+  onChange: (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
+  onAdd: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
-
 function CreateProject(props: CreateProjectProps) {
   const [title, setTitle] = useState("");
   const [owner, setOwner] = useState("");
