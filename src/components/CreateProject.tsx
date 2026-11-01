@@ -1,6 +1,5 @@
 import React, { ChangeEventHandler, useState } from "react";
 
-
 interface CreateProjectProps {
   project: {
     projectTitle: string;

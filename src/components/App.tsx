@@ -18,7 +18,7 @@ function App() {
     localStorage.setItem("kanban_projects", JSON.stringify(projects));
   }, [projects]);
 
-  function handleChange(event) {
+  function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { name, value } = event.target;
     setProject((prevProject) => {
       return {
@@ -27,7 +27,7 @@ function App() {
       };
     });
   }
-  function handleClick(event) {
+  function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
     setProjects((prevProjects) => [
       ...prevProjects,
