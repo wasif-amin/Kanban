@@ -2,17 +2,20 @@ import React, { useState, useEffect } from "react";
 import Project from "./Project";
 import CreateProject from "./CreateProject";
 import "../styles.css";
+import { KanbanCard, CardStatus } from "../types";
 
 function App() {
+  const [projects, setProjects] = useState<KanbanCard[]>([]);
   const [project, setProject] = useState({
-    projectTitle: "",
+    ProjectTitle: "",
     owner: "",
     actionItem: "",
+    status: "not started" as CardStatus
   });
-  const [projects, setProjects] = useState(() => {
+ 
     const savedProjects = localStorage.getItem("kanban_projects");
     return savedProjects ? JSON.parse(savedProjects) : [];
-  });
+  
 
   useEffect(() => {
     localStorage.setItem("kanban_projects", JSON.stringify(projects));
@@ -26,6 +29,7 @@ function App() {
         [name]: value,
       };
     });
+  
   }
   function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
@@ -37,7 +41,7 @@ function App() {
       projectTitle: "",
       owner: "",
       actionItem: "",
-      status: "notStarted",
+      status: "not started",
     });
   }
 
