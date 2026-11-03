@@ -61,8 +61,8 @@ function App() {
     });
   }
 
-  function updateOwner(event, idToUpdate: number) {
-    const newOwner = event.target.value;
+  function updateOwner(e: React.FocusEvent<HTMLInputElement, Element>, idToUpdate: number) {
+    const newOwner = e.target.value;
     setProjects((prevProjects) => {
       return prevProjects.map((project) => {
         if (project.id === idToUpdate) {
@@ -73,8 +73,8 @@ function App() {
     });
   }
 
-  function updateAction(event, idToUpdate: Number) {
-    const newAction = event.target.value;
+  function updateAction(e: React.FocusEvent<HTMLInputElement, Element>, idToUpdate: Number) {
+    const newAction = e.target.value;
     setProjects((prevProjects) => {
       return prevProjects.map((project) => {
         if (project.id === idToUpdate) {
