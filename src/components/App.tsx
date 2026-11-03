@@ -45,7 +45,7 @@ function App() {
     });
   }
 
-  function handleStatusChange(id, newStatus) {
+  function handleStatusChange(id: number, newStatus: CardStatus) {
     setProjects((prevProjects) =>
       prevProjects.map((project) =>
         project.id === id ? { ...project, status: newStatus } : project
@@ -53,7 +53,7 @@ function App() {
     );
   }
 
-  function deleteProject(idToDelete) {
+  function deleteProject(idToDelete: number) {
     setProjects((prevProjects) => {
       return prevProjects.filter((projectItem) => {
         return projectItem.id !== idToDelete;
@@ -61,7 +61,7 @@ function App() {
     });
   }
 
-  function updateOwner(event, idToUpdate) {
+  function updateOwner(event, idToUpdate: number) {
     const newOwner = event.target.value;
     setProjects((prevProjects) => {
       return prevProjects.map((project) => {
@@ -73,7 +73,7 @@ function App() {
     });
   }
 
-  function updateAction(event, idToUpdate) {
+  function updateAction(event, idToUpdate: Number) {
     const newAction = event.target.value;
     setProjects((prevProjects) => {
       return prevProjects.map((project) => {
