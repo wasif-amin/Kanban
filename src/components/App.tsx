@@ -38,7 +38,7 @@ function App() {
       { ...project, id: Date.now() },
     ]);
     setProject({
-      projectTitle: "",
+      ProjectTitle: "",
       owner: "",
       actionItem: "",
       status: "not started",
@@ -95,7 +95,7 @@ function App() {
         <Project
           key={project.id || index}
           id={project.id}
-          ProjectTitle={project.projectTitle}
+          ProjectTitle={project.ProjectTitle}
           owner={project.owner}
           actionItem={project.actionItem}
           status={project.status}
