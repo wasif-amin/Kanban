@@ -2,7 +2,7 @@ import React, { ChangeEventHandler, useState } from "react";
 
 interface CreateProjectProps {
   project: {
-    projectTitle: string;
+    ProjectTitle: string;
     owner: string;
     actionItem: string;
   };
@@ -20,7 +20,7 @@ function CreateProject(props: CreateProjectProps) {
       <input
         onChange={props.onChange}
         name="projectTitle"
-        value={props.project.projectTitle}
+        value={props.project.ProjectTitle}
         placeholder="ProjectTitle"
       />
       <input

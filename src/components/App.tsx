@@ -10,18 +10,16 @@ function App() {
     ProjectTitle: "",
     owner: "",
     actionItem: "",
-    status: "not started" as CardStatus
+    status: "not started" as CardStatus,
   });
- 
-    const savedProjects = localStorage.getItem("kanban_projects");
-    return savedProjects ? JSON.parse(savedProjects) : [];
-  
 
   useEffect(() => {
     localStorage.setItem("kanban_projects", JSON.stringify(projects));
   }, [projects]);
 
-  function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+  function handleChange(
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
     const { name, value } = event.target;
     setProject((prevProject) => {
       return {
@@ -29,7 +27,6 @@ function App() {
         [name]: value,
       };
     });
-  
   }
   function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
@@ -61,8 +58,12 @@ function App() {
     });
   }
 
-  function updateOwner(e: React.FocusEvent<HTMLInputElement, Element>, idToUpdate: number) {
-    const newOwner = e.target.value;
+  function updateOwner(
+    e: React.FocusEvent<HTMLInputElement, Element>,
+    idToUpdate: number
+  ) {
+    const newOwner = (e.target as HTMLInputElement).value;
+
     setProjects((prevProjects) => {
       return prevProjects.map((project) => {
         if (project.id === idToUpdate) {
@@ -73,8 +74,11 @@ function App() {
     });
   }
 
-  function updateAction(e: React.FocusEvent<HTMLInputElement, Element>, idToUpdate: Number) {
-    const newAction = e.target.value;
+  function updateAction(
+    e: React.FocusEvent<HTMLInputElement, Element>,
+    idToUpdate: number
+  ) {
+    const newAction = (e.target as HTMLInputElement).value;
     setProjects((prevProjects) => {
       return prevProjects.map((project) => {
         if (project.id === idToUpdate) {
