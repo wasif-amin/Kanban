@@ -5,12 +5,16 @@ import "../styles.css";
 import { KanbanCard, CardStatus } from "../types";
 
 function App() {
-  const [projects, setProjects] = useState<KanbanCard[]>([]);
+  
   const [project, setProject] = useState({
     ProjectTitle: "",
     owner: "",
     actionItem: "",
     status: "not started" as CardStatus,
+  });
+  const [projects, setProjects] = useState<KanbanCard[]>(() => {
+    const savedProjects = localStorage.getItem("kanban_projects");
+    return savedProjects ? JSON.parse(savedProjects) : [];
   });
 
   useEffect(() => {
