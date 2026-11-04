@@ -19,7 +19,7 @@ function CreateProject(props: CreateProjectProps) {
     <form className="create">
       <input
         onChange={props.onChange}
-        name="projectTitle"
+        name="ProjectTitle"
         value={props.project.ProjectTitle}
         placeholder="ProjectTitle"
       />
