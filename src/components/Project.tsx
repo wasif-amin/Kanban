@@ -27,10 +27,9 @@ interface ProjectProps {
   ): unknown;
   owner: string | number | readonly string[] | undefined;
   status?: CardStatus;
-}
-interface ProjectProps {
   onStatusChange: (id: number, nextStatus: CardStatus) => void;
 }
+
 function Project(props: ProjectProps) {
   const [isEditingAction, setIsEditingAction] = useState(false);
   const [isEditingOwner, setIsEditingOwner] = useState(false);
@@ -51,7 +50,7 @@ function Project(props: ProjectProps) {
   return (
     <div className={`card ${status}`}>
       <div className="top" style={topStyles}>
-      <h1>{props.ProjectTitle}</h1>
+        <h1>{props.ProjectTitle}</h1>
         {isEditingOwner ? (
           <input
             defaultValue={props.owner}
@@ -126,9 +125,7 @@ function Project(props: ProjectProps) {
       ) : (
         <p onClick={() => setIsEditingAction(true)}>{props.actionItem}</p>
       )}
-      <button onClick={() => props.onDelete(props.id)}>
-        Delete Project
-      </button>
+      <button onClick={() => props.onDelete(props.id)}>Delete Project</button>
     </div>
   );
 }
